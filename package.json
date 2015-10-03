@@ -1,0 +1,18 @@
+{ "name": "vtex-app",
+  "version": "0.4.0",
+  "description": " Servidor http",
+  "contributors": 
+  [ 
+    {
+      "name": "Ruhan dos Reis Monteiro ",
+      "email": "mobbyd1@gmail.com" 
+    } 
+  ],
+  "keywords": [ "cli", "http", "server" ],
+  "dependencies" : 
+  {
+    "express" : "3.x", 
+    "consolidate" : "0.4.x", 
+    "swig": "0.12.x" 
+  } 
+}
