@@ -11,7 +11,7 @@ console.log('Servidor rodando...');
 
 app.set('view engine', 'jade');
 
-app.get('/index', function (req, res)
+app.get('/', function (req, res)
 {
     res.sendfile('views/index.html', {root: __dirname });
 });

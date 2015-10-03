@@ -4,7 +4,7 @@ module.exports = {
 	{
 		var cart = request.session.cart || [];
 		cart[item.name] = item;
-	}
+	},
 
 	removeFromCart: function( request, item ) 
 	{
