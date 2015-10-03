@@ -5,7 +5,7 @@ var GithubUtils = require('./javascript/github/GithubUtils');
 var CartController = require('./javascript/cart/CartController');
 
 app = express();
-app.listen('8080');
+app.listen( process.env.PORT || '8080' );
 
 console.log('Servidor rodando...');
 
