@@ -1,5 +1,5 @@
-{ "name": "vtex-app",
-  "version": "0.4.0",
+{ "name": "vtexapp",
+  "version": "0.1.0",
   "description": " Servidor http",
   "contributors": 
   [ 

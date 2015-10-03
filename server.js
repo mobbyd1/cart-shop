@@ -3,6 +3,10 @@ var https = require('https');
 var cons = require('consolidate');
 var GithubUtils = require('./javascript/github/GithubUtils');
 var CartController = require('./javascript/cart/CartController');
+var Mongodb = require('mongoose');
+
+Mongodb.connect('mongodb://vtex-app:vtex-app@ds041633.mongolab.com:41633/cart-db');
+
 
 app = express();
 app.listen( process.env.PORT || '8080' );
