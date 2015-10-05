@@ -1,6 +1,9 @@
 var https = require('https');
 
-var githubPass = '?client_id=5976a346ccf27a99abda&client_secret=32ba01e703d13875d1d9dcdbe917e45e83b00fb2';
+var githubPass = "";
+
+var GithubUtils = function() {
+}
 
 var calculatePrice = function( numberOfFollowers, numberOfPublicRepos ) 
 {
@@ -29,12 +32,14 @@ var getUserContent = function( userName, callback )
 			quantity: 1
 		};
 
+		console.log( user );
+
 		callback( user );
 	});
 		
 }
 
-var getOrganizationMembers = function( organizationName, callback ) {
+GithubUtils.prototype.getOrganizationMembers = function( organizationName, callback ) {
 
 	var urlOptions = 
 	{
@@ -46,8 +51,6 @@ var getOrganizationMembers = function( organizationName, callback ) {
 
 	var members = [];
 	requestJsonContent( urlOptions, function( json ) {
-
-		console.log( "JSON: " + json );
 
 		if( json == undefined ) {
 			callback( [] );
@@ -100,15 +103,5 @@ var requestJsonContent = function( urlOptions, callback ) {
 	request.end();
 }
 
-module.exports = 
-{
-	getUserContent: function( userName, callback ){
-		getUserContent( userName, callback );
-	},
-
-	getOrganizationMembers: function( organizationName, callback ){
-		getOrganizationMembers( organizationName, callback );
-	}
-
-}
+module.exports = new GithubUtils();
 

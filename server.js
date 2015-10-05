@@ -37,18 +37,6 @@ app.get('/', function (req, res)
 	} );
 });
 
-app.get('/user', function(req, res)
-{
-	console.log("Getting user: " + req.query.name + " content...")
-
-	var userName = req.query.name;
-	GithubUtils.getUserContent( userName, function( userContent ){
-
-		console.log( "User content complete: " + userContent );
-		res.send( userContent );
-	});
-});
-
 app.get( '/add', function(req, res)
 {	
 	var item = {
@@ -58,7 +46,7 @@ app.get( '/add', function(req, res)
 		thumb: req.query.thumb
 	}
 
-	console.log( item );
+	console.log( "Adding: " + JSON.stringify( item ) + " to the cart..." );
 
 	CartController.addToCart( item, function( cart ) {
 		sendCartResponse( cart, res );
@@ -67,6 +55,8 @@ app.get( '/add', function(req, res)
 
 app.get( '/remove', function(req, res)
 {
+	console.log( "Removing " + req.query.name + " from cart..." );
+
 	CartController.removeItem( req.query.name, function() {
 
 		CartController.getCart( function( cart ) {
@@ -78,6 +68,8 @@ app.get( '/remove', function(req, res)
 
 app.get( '/org', function(req, res){
 	
+	console.log("Getting " + req.query.name + " members from Github...");
+
 	GithubUtils.getOrganizationMembers( req.query.name, function( members ){
 		res.send( members );
 	});

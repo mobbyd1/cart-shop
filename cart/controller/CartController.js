@@ -4,7 +4,6 @@ var Cart = require('../model/CartShopSchema');
 Mongodb.connect('mongodb://vtex-app:vtex-app@ds041633.mongolab.com:41633/cart-db');
 
 var CartController = function(){
-
 }
 
 CartController.prototype.addToCart = function( item, callback ) {
@@ -90,25 +89,4 @@ CartController.prototype.removeItem = function( itemName ,callback ) {
 	);
 }
 
-module.exports = 
-{
-	addToCart: function( item, callback ) {
-		var cart = new CartController();
-		cart.addToCart( item, callback );
-	},
-
-	deleteCart: function( callback ) {
-		var cart = new CartController();
-		cart.deleteCart( callback );
-	},
-
-	getCart: function( callback ) {
-		var cart = new CartController();
-		cart.getCart( callback );
-	},
-
-	removeItem: function( itemName ,callback ) {
-		var cart = new CartController();
-		cart.removeItem( itemName, callback );
-	}
-}
+module.exports = new CartController();
